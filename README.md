@@ -42,16 +42,6 @@ Cette commande :
 - Crée la base de données et les tables
 - Ingère les données JSON (~121k enregistrements)
 
-## Utilisation
-
-### Lancer l'analyse
-
-```bash
-make notebook
-```
-
-Ouvre Jupyter et exécute `notebooks/spotify_analysis.ipynb` pour l'analyse exploratoire complète avec Plotly.
-
 ### Commandes disponibles
 
 | Commande | Description |
@@ -66,7 +56,6 @@ Ouvre Jupyter et exécute `notebooks/spotify_analysis.ipynb` pour l'analyse expl
 | `make test` | Lance les tests pytest |
 | `make lint` | Vérifie le code avec Ruff |
 | `make format` | Formate le code |
-| `make notebook` | Lance Jupyter |
 
 ## Structure du projet
 
