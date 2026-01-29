@@ -1,6 +1,6 @@
 # Spotify Dashboard
 
-Analyse de mon historique d'écoute Spotify (2014-2024).
+Analyse de mon historique d'écoute Spotify.
 
 ## Prérequis
 

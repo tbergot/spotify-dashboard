@@ -1,4 +1,4 @@
-.PHONY: help install dev pg-start pg-stop pg-create-db db-init ingest reimport test lint format black black-check clean notebook all
+.PHONY: help install dev pg-start pg-stop pg-create-user pg-create-db db-init ingest reimport test lint format black black-check clean notebook all
 
 PYTHON := python3
 DATA_DIR := ./data
@@ -20,8 +20,11 @@ pg-start:  ## Démarre PostgreSQL
 pg-stop:  ## Arrête PostgreSQL
 	brew services stop postgresql@16
 
-pg-create-db:  ## Crée la base de données spotify_db
-	/usr/local/opt/postgresql@16/bin/createdb spotify_db 2>/dev/null || echo "Base spotify_db existe déjà"
+pg-create-user:  ## Crée l'utilisateur PostgreSQL spotify
+	/usr/local/opt/postgresql@16/bin/psql postgres -c "CREATE USER spotify WITH PASSWORD 'spotify_secret';" 2>/dev/null || echo "Utilisateur spotify existe déjà"
+
+pg-create-db: pg-create-user  ## Crée la base de données spotify_db
+	/usr/local/opt/postgresql@16/bin/createdb -O spotify spotify_db 2>/dev/null || echo "Base spotify_db existe déjà"
 
 db-init:  ## Initialise le schéma de la base de données
 	$(PYTHON) -m tools.init_db
