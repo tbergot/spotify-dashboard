@@ -19,7 +19,7 @@ dev = [
     "pytest-cov>=4.1",
     "ruff>=0.1",
     "dvc>=3.55",
-    "black[jupyter]>=24.0",
+    "black[jupyter]>=24.0,<25.0",  # pinned <25 for pathspec compatibility with DVC
 ]
 notebook = [
     "jupyter>=1.0",
